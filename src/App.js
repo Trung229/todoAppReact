@@ -19,6 +19,7 @@ import React, { useContext } from 'react';
 import TaskContextProvider from './contexts/TaskContext'
 
 function App() {
+  const unusedVar = 0;
   return (
     <UserContextProvider>
       <TaskContextProvider>
