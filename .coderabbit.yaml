@@ -1,0 +1,107 @@
+# CodeRabbit configuration for Todo App React Project
+# Tệp cấu hình CodeRabbit cho dự án Todo App React
+
+# Ngôn ngữ chính của project
+language: "vi" # Tiếng Việt
+
+# Cấu hình reviews
+reviews:
+  # Tự động review các pull request
+  auto_review: true
+  
+  # Mức độ chi tiết của review (low, medium, high)
+  review_level: "medium"
+  
+  # Các loại check muốn thực hiện
+  checks:
+    - "security"        # Kiểm tra bảo mật
+    - "performance"     # Kiểm tra hiệu suất
+    - "code_quality"    # Chất lượng code
+    - "best_practices"  # Best practices
+    - "bugs"           # Phát hiện bugs
+    - "style"          # Code style
+
+# Cấu hình cho từng loại file
+file_patterns:
+  # JavaScript/TypeScript files
+  "**/*.{js,jsx,ts,tsx}":
+    - check_react_hooks
+    - check_unused_vars
+    - check_async_await
+    
+  # CSS/SCSS files  
+  "**/*.{css,scss,sass}":
+    - check_css_best_practices
+    
+  # JSON files
+  "**/*.json":
+    - validate_json_syntax
+
+# Files và folders cần bỏ qua
+ignore:
+  - "node_modules/**"
+  - "build/**"
+  - "dist/**"
+  - ".next/**"
+  - "coverage/**"
+  - "*.min.js"
+  - "*.bundle.js"
+
+# Cấu hình React-specific
+react:
+  # Kiểm tra React hooks usage
+  hooks_rules: true
+  
+  # Kiểm tra component naming
+  component_naming: "PascalCase"
+  
+  # Kiểm tra prop types
+  prop_types: true
+
+# Cấu hình security
+security:
+  # Kiểm tra dependencies có lỗ hổng
+  dependency_check: true
+  
+  # Kiểm tra sensitive data
+  sensitive_data_check: true
+
+# Cấu hình performance
+performance:
+  # Kiểm tra bundle size
+  bundle_size_check: true
+  
+  # Kiểm tra unused imports
+  unused_imports: true
+
+# Template cho comments
+comment_templates:
+  suggestion: "💡 **Gợi ý cải thiện:** {message}"
+  security: "🔒 **Vấn đề bảo mật:** {message}"
+  performance: "⚡ **Tối ưu hiệu suất:** {message}"
+  bug: "🐛 **Có thể là bug:** {message}"
+
+# Cấu hình thông báo
+notifications:
+  # Gửi summary sau khi review xong
+  summary: true
+  
+  # Thông báo qua email
+  email: false
+  
+  # Thông báo trong PR
+  in_pr: true
+
+# Tùy chỉnh AI behavior
+ai_behavior:
+  # Mức độ strict của review
+  strictness: "medium"
+  
+  # Focus vào những gì
+  focus_areas:
+    - "functionality"
+    - "maintainability" 
+    - "readability"
+    
+  # Tone của feedback
+  tone: "constructive" # constructive, friendly, professional
