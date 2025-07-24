@@ -20,6 +20,7 @@ import TaskContextProvider from './contexts/TaskContext'
 
 function App() {
   const unusedVar = 0;
+  const unusedVar2 = 0;
   return (
     <UserContextProvider>
       <TaskContextProvider>
